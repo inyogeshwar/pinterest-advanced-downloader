@@ -1,0 +1,55 @@
+/**
+ * Pinterest Advanced Downloader - Content CSS
+ */
+
+/* Download button hover effect */
+.pad-download-button:hover {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  transform: scale(1.1);
+}
+
+/* Bulk download button hover effect */
+.pad-bulk-download-button:hover {
+  background-color: #ad081b !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Animation for buttons */
+.pad-download-button, .pad-bulk-download-button {
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Progress bar styles */
+.pad-progress-container {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  width: 200px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  overflow: hidden;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pad-progress-bar {
+  height: 100%;
+  background-color: #2cbe4e;
+  width: 0%;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Download counter */
+.pad-download-counter {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  padding: 4px 8px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 12px;
+  font-size: 12px;
+  z-index: 1000;
+}

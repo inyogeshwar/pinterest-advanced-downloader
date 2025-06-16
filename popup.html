@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinterest Advanced Downloader</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+      width: 320px;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+    
+    .header {
+      background-color: #e60023;
+      color: white;
+      padding: 16px;
+      text-align: center;
+      border-bottom: 1px solid #c5001f;
+    }
+    
+    .header h1 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    .content {
+      padding: 16px;
+    }
+    
+    .section {
+      margin-bottom: 20px;
+    }
+    
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #666;
+    }
+    
+    .toggle-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    .toggle-label {
+      font-size: 14px;
+    }
+    
+    .toggle {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+    
+    .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .3s;
+      border-radius: 20px;
+    }
+    
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .toggle-slider {
+      background-color: #2cbe4e;
+    }
+    
+    input:checked + .toggle-slider:before {
+      transform: translateX(20px);
+    }
+    
+    .select-container {
+      margin-bottom: 12px;
+    }
+    
+    .select-container label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+    
+    select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      background-color: white;
+      font-size: 14px;
+    }
+    
+    .number-input {
+      width: 60px;
+      padding: 6px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    
+    .download-stats {
+      background-color: #f0f0f0;
+      border-radius: 6px;
+      padding: 12px;
+      margin-top: 12px;
+    }
+    
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+    
+    .stat-label {
+      color: #666;
+    }
+    
+    .stat-value {
+      font-weight: 500;
+    }
+    
+    .button {
+      background-color: #e60023;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.2s;
+    }
+    
+    .button:hover {
+      background-color: #ad081b;
+    }
+    
+    .button.secondary {
+      background-color: #f0f0f0;
+      color: #333;
+      margin-top: 10px;
+    }
+    
+    .button.secondary:hover {
+      background-color: #ddd;
+    }
+    
+    .footer {
+      font-size: 12px;
+      text-align: center;
+      padding: 12px;
+      color: #999;
+      border-top: 1px solid #eee;
+    }
+    
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Pinterest Advanced Downloader</h1>
+  </div>
+  
+  <div class="content">
+    <div class="section">
+      <div class="section-title">Download Settings</div>
+      
+      <div class="select-container">
+        <label for="downloadQuality">Image & Video Quality</label>
+        <select id="downloadQuality">
+          <option value="best">Best quality (Original)</option>
+          <option value="medium">Medium quality</option>
+          <option value="small">Small (Faster downloads)</option>
+        </select>
+      </div>
+      
+      <div class="toggle-container">
+        <div class="toggle-label">Auto-create folders</div>
+        <label class="toggle">
+          <input type="checkbox" id="autoFolderNaming" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      
+      <div class="toggle-container">
+        <div class="toggle-label">Show download buttons</div>
+        <label class="toggle">
+          <input type="checkbox" id="showDownloadButtons" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      
+      <div class="toggle-container">
+        <div class="toggle-label">Download limit</div>
+        <input type="number" id="downloadLimit" class="number-input" min="0" max="500" value="100">
+      </div>
+    </div>
+    
+    <div class="section">
+      <div class="section-title">Current Page Actions</div>
+      <button id="downloadAll" class="button">Download All Pins on This Page</button>
+      <button id="cancelDownloads" class="button secondary hidden">Cancel Downloads</button>
+      
+      <div id="downloadStats" class="download-stats hidden">
+        <div class="stat-item">
+          <div class="stat-label">Total pins:</div>
+          <div class="stat-value" id="totalPins">0</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Completed:</div>
+          <div class="stat-value" id="completedDownloads">0</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Failed:</div>
+          <div class="stat-value" id="failedDownloads">0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <div>Pinterest Advanced Downloader v1.0.0</div>
+    <div>For public Pinterest content only</div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

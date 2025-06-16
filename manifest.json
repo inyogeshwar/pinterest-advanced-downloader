@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "Pinterest Advanced Downloader",
+  "version": "1.0.0",
+  "description": "Download high-quality images and videos from Pinterest with advanced features",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.pinterest.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },  "content_scripts": [
+    {
+      "matches": ["https://*.pinterest.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/download_image.png", "icons/download_video.png"],
+      "matches": ["https://*.pinterest.com/*"]
+    }
+  ],
+  "commands": {
+    "download-all": {
+      "suggested_key": {
+        "default": "Alt+D"
+      },
+      "description": "Download all pins on current page"
+    },
+    "toggle-buttons": {
+      "suggested_key": {
+        "default": "Alt+B"
+      },
+      "description": "Toggle download buttons visibility"
+    }
+  }
+}

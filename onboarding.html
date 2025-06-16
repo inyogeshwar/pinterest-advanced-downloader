@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Pinterest Advanced Downloader</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .logo {
+      width: 100px;
+      height: 100px;
+      background-color: #e60023;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .logo svg {
+      width: 60px;
+      height: 60px;
+    }
+    
+    h1 {
+      font-size: 32px;
+      margin: 0;
+      color: #111;
+    }
+    
+    .tagline {
+      font-size: 18px;
+      color: #666;
+      margin-top: 10px;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    .feature {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease;
+    }
+    
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      background-color: #f0f0f0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    
+    .feature-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 10px 0;
+    }
+    
+    .feature-description {
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .getting-started {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin: 40px 0;
+    }
+    
+    .getting-started h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+    
+    .step {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    
+    .step-number {
+      width: 30px;
+      height: 30px;
+      background-color: #e60023;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    
+    .step-content {
+      flex-grow: 1;
+    }
+    
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .button-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    .button {
+      display: inline-block;
+      background-color: #e60023;
+      color: white;
+      border: none;
+      border-radius: 24px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    
+    .button:hover {
+      background-color: #ad081b;
+    }
+    
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #999;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 16L12 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 13L12 16L15 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 20H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1>Welcome to Pinterest Advanced Downloader</h1>
+      <p class="tagline">The smart way to save high-quality images and videos from Pinterest</p>
+    </div>
+    
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 16L8 12L12 16L20 8" stroke="#e60023" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 8H20V14" stroke="#e60023" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Best Quality</h3>
+        <p class="feature-description">Automatically detects and downloads the highest quality version of any image or video on Pinterest.</p>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 9H21M9 21V9M15 21V9M5 9L5 21H19V9" stroke="#e60023" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 4H16L17 7H7L8 4Z" stroke="#e60023" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Bulk Download</h3>
+        <p class="feature-description">Download entire boards or search results with a single click. Perfect for collecting inspiration.</p>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 20H20" stroke="#e60023" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 4H20" stroke="#e60023" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="4" y="8" width="16" height="8" rx="1" stroke="#e60023" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Smart Organization</h3>
+        <p class="feature-description">Files are automatically organized into folders based on board names. No more manual sorting!</p>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="#e60023" stroke-width="2"/>
+            <path d="M12 7V12L15 15" stroke="#e60023" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Real-time Progress</h3>
+        <p class="feature-description">Watch as your downloads progress with our intuitive tracking system.</p>
+      </div>
+    </div>
+    
+    <div class="getting-started">
+      <h2>Getting Started</h2>
+      
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <div class="step-title">Visit Pinterest</div>
+          <div class="step-description">Navigate to any Pinterest board, search result, or individual pin.</div>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <div class="step-title">Single Downloads</div>
+          <div class="step-description">Hover over any image or video to see the download button appear, then click it to download that item.</div>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <div class="step-title">Bulk Downloads</div>
+          <div class="step-description">Click the "Download All" button that appears on boards and search results to download everything at once.</div>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <div class="step-title">Customize Settings</div>
+          <div class="step-description">Click the extension icon in your browser toolbar to adjust quality settings, folder organization, and more.</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="button-container">
+      <button id="startButton" class="button">Start Using Pinterest Advanced Downloader</button>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Pinterest Advanced Downloader v1.0.0</p>
+    <p>This extension is for personal use with public Pinterest content only.</p>
+  </div>
+  
+  <script>
+    document.getElementById('startButton').addEventListener('click', function() {
+      window.close();
+    });
+  </script>
+</body>
+</html>
